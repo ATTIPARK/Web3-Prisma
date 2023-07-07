@@ -4,12 +4,7 @@ import axios from "axios";
 import { NextPage } from "next";
 import { FormEventHandler, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import Web3, { Personal } from "web3";
-
-export const web3 = new Web3(typeof window !== "undefined" && window.ethereum);
-export const personal = new Personal(
-  typeof window !== "undefined" && window.ethereum
-);
+import { personal } from "./lib/client";
 
 const Home: NextPage = () => {
   const [email, setEmail] = useState<string>("");
