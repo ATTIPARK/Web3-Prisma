@@ -6,8 +6,10 @@ import { FormEventHandler, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Web3, { Personal } from "web3";
 
-export const web3 = new Web3(window.ethereum);
-export const personal = new Personal(window.ethereum);
+export const web3 = new Web3(typeof window !== "undefined" && window.ethereum);
+export const personal = new Personal(
+  typeof window !== "undefined" && window.ethereum
+);
 
 const Home: NextPage = () => {
   const [email, setEmail] = useState<string>("");
